@@ -22,4 +22,4 @@
 
 ##External Input/Automated Workout Input
 
--Read Data from sports watch/fitbit/niket
+* Read Data from sports watch/fitbit/niket
