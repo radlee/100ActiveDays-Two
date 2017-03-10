@@ -6,6 +6,7 @@ function calculateDays() {
     hundredthDay.setDate(hundredthDay.getDate() + 100);
     var interval = setInterval(function() {
       var now = new Date();
+
       var distance = hundredthDay - now;
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -16,33 +17,13 @@ function calculateDays() {
       var this_hour = (23-hours);
       var this_minute = (59-minutes);
       var this_second = (59-seconds);
-      //Get the Time from the input to actual time--
-      var duration_string = duration.toString();
-      var array = duration_string.split(':');
-      //Separate Hours from Minutes--
-
-      var input_minutes = parseInt(array[1]);
-      var input_hours = parseInt(array[0]);
-
-      if(this_minute === input_minutes && this_hour === input_hours){
-        var min;
-        if(this_minute > 2){
-          min = "Minutes";
-        }
-         else{
-          min = "Minute";
-        }
-        document.getElementById("duration").innerHTML = "Completed " + workout + " " + this_minute + " " + min + " ago.";
-        document.getElementById("workout_name").style.visibility = "hidden";
-      }
-      else {
-        document.getElementById("workout_name").innerHTML = "[ " + workout + " in progress ]";
-        document.getElementById("duration").innerHTML = this_hour + " " + this_minute + " " + this_second;
-      }
 
       document.getElementById("result").innerHTML = "Day #" + today;
-      document.getElementById("timer").innerHTML = this_hour + " Hours " + this_minute + " Minutes and " + this_second + " Secs "
-          + " Since <span style='color:red'>Active</span>";
+      // On the 99th Day Display the countdown to the Screen
+      if( today === 99){
+        document.getElementById("timer").innerHTML = this_hour + " Hours " + this_minute + " Minutes and " + this_second + " Secs "
+            + " Since <span style='color:red'>Active</span>";
+      }
 
       if (now === hundredthDay) {
         clearInterval(interval);
