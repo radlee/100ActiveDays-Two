@@ -4,48 +4,47 @@
   <title>100ActiveDays-Two</title>
   </script>
 </head>
-
 <style media="screen">
-  body{
-    text-align: center;
-  }
-  #secod{
-    color: red;
-  }
+  body{text-align: center;}
+  #secod{color: red; }
 </style>
-
 <body>
+    <!-- Display the day number -->
   <h1 id="day-number"></h1>
   <form>
   <h1 id="result"></h1>
-  <h2 id="timer"></h2>
+  <!-- Timer that should count from Duration time down -->
+  <!-- <h2 id="timer"></h2> -->
   <br>
     <label>Workout : </label>
     <div class="">
       <input type="text" name="workout" id="work_out" value="">
     </div>
-    <label>Duration : </label>
+    <label>Duration h:m: </label>
     <div class="">
-      <input type="time" name="duration" id="w_duration" value="">
+      <input type="time" name="duration" placeholder="hh:mm"id="w_duration" value="">
     </div>
   </form>
   <div class="">
     <!-- Automatically start the 'workout' time from the moment the 'quest' is starting -->
     <button id="start_quest" type="button" name="button" onclick="calculateDays(); calculateWorkout();">Start Quest</button>
   </div>
-  <!-- Might Not need this indefinately but will keep it incase something needs it..but i hope it dies -->
-  <!-- <div class="">
-    <input id="start_workout"onclick="calculateWorkout()">
-  </div> -->
+
   <div class="">
+    <!-- Toggle pause/play button for the duration -->
     <input id="pause_and_continue" type="button" value="pause" onclick="pause_continue()">
+    <!-- Reset the timer of the workout to start a new one anew -->
     <input id="reset" type="button" value="reset" onclick="reset()">
   </div>
+
+  <!-- Dsiplay Message when the daily workout is completed -->
   <h3 id="completed"></h3>
+  <!-- Display the time from zero to the entered workout time -->
   <h3 id="duration"></h3>
+  <!-- Dsiplay which workout is currently in progress -->
   <h4 id="workout_name"></h4>
 </body>
 <script src="js/countDays.js"></script>
 <script src="js/workoutTime.js"></script>
-<script src="js/play_start.js"></script>
+<!-- <script src="js/play_start.js"></script> -->
 </html>

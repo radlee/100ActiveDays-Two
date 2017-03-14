@@ -15,10 +15,12 @@ function calculateWorkout() {
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
       //Reset Current time to Zero and Start Countng Up to Day #100--
       var this_hour = (23-hours);
       var this_minute = (59-minutes);
       var this_second = (59-seconds);
+
       //Get the Time from the input to actual time--
       var duration_string = duration.toString();
       var array = duration_string.split(':');
@@ -26,6 +28,7 @@ function calculateWorkout() {
 
       var input_minutes = parseInt(array[1]);
       var input_hours = parseInt(array[0]);
+
 
       if(this_hour >= input_hours && this_minute >= input_minutes){
         var min;
@@ -48,6 +51,7 @@ function calculateWorkout() {
         // document.getElementById("start_workout").style.visibility = "hidden";
         document.getElementById("workout_name").innerHTML = "[ " + workout + " in progress ]";
         document.getElementById("duration").innerHTML = this_hour + " " + this_minute + " " + this_second;
+        document.getElementById("timer_up").innerHTML = hours + " " + (input_minutes) + " " + this_second;
       }
     }, 1000);
 }
